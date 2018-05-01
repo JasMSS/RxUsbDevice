@@ -5,7 +5,9 @@ import android.app.FragmentManager;
 import android.content.Context;
 import android.hardware.usb.UsbDevice;
 import android.hardware.usb.UsbManager;
+import android.os.Build;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -80,6 +82,25 @@ public class RxUsbDevice {
     public UsbDevice findUsbDeviceByDeviceName(String usbDeviceName){
         HashMap<String, UsbDevice> deviceList = findAllUsbDevices();
         return deviceList.get(usbDeviceName);
+    }
+
+    /**
+     * 在已连接USB设备中获取指定的USB设备
+     * @param usbProductName 设备的型号名称
+     * @return
+     */
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    public UsbDevice findUsbDeviceByProductName(String usbProductName){
+        if(usbProductName == null || usbProductName.length() == 0){
+            return null;
+        }
+        HashMap<String, UsbDevice> deviceList = findAllUsbDevices();
+        for(UsbDevice device : deviceList.values()){
+            if(device.getProductName().equals(usbProductName)){
+                return device; 
+            }
+        }
+        return null;
     }
 
     /*

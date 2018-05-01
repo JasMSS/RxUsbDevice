@@ -13,5 +13,6 @@ public class UsbPermission {
     public UsbPermission(UsbDevice usbDevice, boolean isGranted) {
         this.usbDevice = usbDevice;
         this.granted = isGranted;
+        Log.i
     }
 }
