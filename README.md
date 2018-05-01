@@ -1,5 +1,5 @@
 # RxUsbDevice
-用于USB设备的权限申请、USB设备的查找等，依赖RxJava2，程序架构思路来源于RxPermission2。
+用于USB设备的权限申请、USB设备的查找等，依赖RxJava2，程序架构思路来源于RxPermission2，即用向Activity中添加寄生Fragment，来实现一步到位的权限申请及其对应处理的业务流程。
 
 ### 安装
 下载此项目源码到本地，然后用Android Studio导入源码中的module“library”到你的项目，然后记得将library的build.gradle文件中的compileSdkVersion、minSdkVersion、targetSdkVersion、versionCode等参数改成你自己的值。
